@@ -118,6 +118,23 @@ public class BoardInitializer{
     }
 
 
+    // 主要是需要三角形部分, 而不是整個validPositions, 但這樣做的話程式又要改 所以就算了
+    public static Map<Position, Piece> initializePieces(Map<Position, PlayerColor> validPositions){
+        Map<Position, Piece> board = new HashMap<>();
+
+        for(Map.Entry<Position, PlayerColor> entry: validPositions.entrySet()){
+            PlayerColor color = entry.getValue();
+            Position pos = entry.getKey();
+
+            if(color != PlayerColor.NONE){
+                Piece piece = new Piece(color);
+                board.put(pos, piece);
+            }
+        }
+        return board;
+    }
+
+
 
 
 }
