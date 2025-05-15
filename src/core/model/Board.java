@@ -1,7 +1,5 @@
 package core.model;
 
-import core.rules.MoveValidator;
-
 import java.util.*;
 
 public class Board implements BoardState{
@@ -29,6 +27,16 @@ public class Board implements BoardState{
     @Override
     public boolean isValidPosition(Position pos) {
         return validPositions.containsKey(pos);
+    }
+
+    // 是否非對家區域
+    @Override
+    public boolean isInOpponentRegion(PlayerColor curPieceColor, Position targetPos){
+        PlayerColor opponentColor = PlayerColor.getOpponent(curPieceColor);
+        PlayerColor targetColor = validPositions.get(targetPos);
+
+        return curPieceColor != targetColor &&
+               curPieceColor != PlayerColor.NONE;
     }
 
 
