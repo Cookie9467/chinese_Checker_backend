@@ -10,13 +10,15 @@ public class Board implements BoardState{
     private final Map<Position, PlayerColor> validPositions;
 
     public Board() {
-        this.board = new HashMap<>();
         this.validPositions = BoardInitializer.addBoardToValidPosition();
-
-
-
+        this.board = BoardInitializer.initializePieces(getValidPositions());
     }
 
+
+
+
+
+    
     // 查詢是否被占用
     @Override
     public boolean isOccupied(Position pos) {
@@ -30,7 +32,7 @@ public class Board implements BoardState{
     }
 
 
-
+    // getter
     public Map<Position, PlayerColor> getValidPositions() {
         return this.validPositions;
     }
