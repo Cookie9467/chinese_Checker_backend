@@ -3,6 +3,7 @@ package core.rules;
 import core.model.Board;
 import core.model.BoardState;
 import core.model.Position;
+import core.model.PlayerColor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +17,8 @@ public class MoveValidator {
         this.board = board;
     }
 
-
-    public List<Position> neighbor(Position piecePosition) {
+    // 顯示周圍為valid的格子
+    public List<Position> neighbor(Position piecePosition, PlayerColor curPlayerColor) {
 
         List<Position> neighbors = new ArrayList<>();
         int q = piecePosition.getQ();
@@ -38,9 +39,8 @@ public class MoveValidator {
             if(!board.isValidPosition(neighborPos)) { continue; }
             // 檢查該位置是否被佔用 被佔用就不管
             if(board.isOccupied((neighborPos))) { continue; }
-            neighbors.add(neighborPos);
-
-            // [可擴充] 檢查是否為其他玩家的起始區域（目前沒這資料，未來加）
+            // 不是目標區域就就不管
+            if(!board.isInOpponentRegion(curPlayerColor, neighborPos)){ continue; }
 
             neighbors.add(neighborPos);
         }
