@@ -14,16 +14,5 @@ public class Piece{
         return playerColor;
     }
 
-    // 棋子移動
-//    public void moveTo(Position newPosition){
-//
-//    }
-
-    // 判斷移動是否合法
-//    public boolean checkMove(Position newPosition){
-//
-//
-//        return false;
-//    }
 
 }
