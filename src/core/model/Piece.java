@@ -4,27 +4,15 @@ import java.awt.Color;
 
 public class Piece{
 
-    private final Color color;
+    private final PlayerColor playerColor;
 
-    public Piece(Color color){
-        this.color = color;
+    public Piece(PlayerColor playerColor) {
+        this.playerColor = playerColor;
+    }
+    
+    public PlayerColor getPlayerColor() {
+        return playerColor;
     }
 
-    // getter
-    public Color getColor(){
-        return this.color;
-    }
-
-    // 棋子移動
-//    public void moveTo(Position newPosition){
-//
-//    }
-
-    // 判斷移動是否合法
-//    public boolean checkMove(Position newPosition){
-//
-//
-//        return false;
-//    }
 
 }
