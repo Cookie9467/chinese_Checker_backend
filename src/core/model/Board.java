@@ -36,6 +36,9 @@ public class Board implements BoardState{
     public Map<Position, PlayerColor> getValidPositions() {
         return this.validPositions;
     }
+    public Map<Position, Piece> getBoard(){
+        return this.board;
+    }
 
 
 }
