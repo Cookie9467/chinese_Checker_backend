@@ -4,15 +4,14 @@ import java.awt.Color;
 
 public class Piece{
 
-    private final Color color;
+    private final PlayerColor playerColor;
 
-    public Piece(Color color){
-        this.color = color;
+    public Piece(PlayerColor playerColor) {
+        this.playerColor = playerColor;
     }
-
-    // getter
-    public Color getColor(){
-        return this.color;
+    
+    public PlayerColor getPlayerColor() {
+        return playerColor;
     }
 
     // 棋子移動
