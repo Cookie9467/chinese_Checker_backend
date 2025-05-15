@@ -1,8 +1,6 @@
 package core.model;
 import java.util.*;
 
-import core.model.PlayerColor;
-
 class Axial{
     int q, r;
     Axial(int q, int r){
