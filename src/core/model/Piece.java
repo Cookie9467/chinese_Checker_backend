@@ -1,18 +1,24 @@
+// Piece.java
 package core.model;
+import java.util.*;
+public class Piece {
+    private PlayerColor color;
+    private Player owner;
 
-import java.awt.Color;
-
-public class Piece{
-
-    private final PlayerColor playerColor;
-
-    public Piece(PlayerColor playerColor) {
-        this.playerColor = playerColor;
-    }
-    
-    public PlayerColor getPlayerColor() {
-        return playerColor;
+    public Piece(PlayerColor color) {
+        this.color = color;
     }
 
+    public Piece(Player owner) {
+        this.owner = owner;
+        this.color = owner.getColor();
+    }
 
+    public Player getOwner() {
+        return owner;
+    }
+
+    public PlayerColor getColor() {
+        return color;
+    }
 }

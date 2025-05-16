@@ -1,53 +1,36 @@
+// Board.java
 package core.model;
-
 import java.util.*;
 
-public class Board implements BoardState{
+public class Board {
+    private Map<Position, PlayerColor> validPositions;
+    private Map<Position, Piece> boardMap;
 
-    private final Map<Position, Piece> board;  // 每個位置對應的棋子（若有）
-    private final Map<Position, PlayerColor> validPositions;
-
-    public Board() {
-        this.validPositions = BoardInitializer.addBoardToValidPosition();
-        this.board = BoardInitializer.initializePieces(getValidPositions());
+    public Board(Map<Position, PlayerColor> validPositions) {
+        this.validPositions = validPositions;
+        this.boardMap = BoardInitializer.initializePieces(validPositions);
     }
 
-
-
-
-
-    
-    // 查詢是否被占用
-    @Override
-    public boolean isOccupied(Position pos) {
-        return board.containsKey(pos);
+    public Piece getPiece(Position pos) {
+        return boardMap.get(pos);
     }
 
-    // 查詢是否為valid
-    @Override
+    public void placePiece(Position pos, Piece piece) {
+        boardMap.put(pos, piece);
+    }
+
+    public void movePiece(Position from, Position to) {
+        Piece piece = boardMap.remove(from);
+        if (piece != null) {
+            boardMap.put(to, piece);
+        }
+    }
+
     public boolean isValidPosition(Position pos) {
         return validPositions.containsKey(pos);
     }
 
-    // 是否非對家區域
-    @Override
-    public boolean isInOpponentRegion(PlayerColor curPieceColor, Position targetPos){
-        PlayerColor opponentColor = PlayerColor.getOpponent(curPieceColor);
-        PlayerColor targetColor = validPositions.get(targetPos);
-
-        return curPieceColor != targetColor &&
-               curPieceColor != PlayerColor.NONE;
+    public Map<Position, Piece> getBoardMap() {
+        return boardMap;
     }
-
-
-    // getter
-    public Map<Position, PlayerColor> getValidPositions() {
-        return this.validPositions;
-    }
-    public Map<Position, Piece> getBoard(){
-        return this.board;
-    }
-
-
 }
-
