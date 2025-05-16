@@ -27,10 +27,10 @@ public class MoveValidator {
         Position[] directions = new Position[]{
                 new Position(q + 1, r),     // 東
                 new Position(q - 1, r),     // 西
-                new Position(q, r + 1),     // 西南
-                new Position(q, r - 1),     // 東北
-                new Position(q + 1, r - 1), // 西北
-                new Position(q - 1, r + 1)  // 東南
+                new Position(q, r - 1),     // 西南
+                new Position(q, r + 1),     // 東北
+                new Position(q - 1, r + 1), // 西北
+                new Position(q + 1, r - 1)  // 東南
         };
 
         for (Position neighborPos : directions) {
