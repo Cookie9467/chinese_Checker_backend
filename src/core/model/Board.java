@@ -16,7 +16,10 @@ public class Board implements BoardState{
 
 
 
-    
+
+
+
+
     // 查詢是否被占用
     @Override
     public boolean isOccupied(Position pos) {
