@@ -1,4 +1,8 @@
-package core.model;
+package core.utils;
+import core.model.Piece;
+import core.model.PlayerColor;
+import core.model.Position;
+
 import java.util.*;
 
 class Axial{

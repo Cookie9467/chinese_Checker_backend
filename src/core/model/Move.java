@@ -21,7 +21,7 @@ public class Move {
      */
     public boolean pieceMove(Position from, Position to) {
         // 檢查起始位置是否有棋子
-        if (!board.isOccupied(from)) {
+        if (!validator.isOccupied(from)) {
             return false;
         }
 
