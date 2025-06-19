@@ -14,5 +14,9 @@ public class Piece{
         return playerColor;
     }
 
+    public Piece(Piece other) {
+        this.playerColor = other.playerColor;
+    }
+
 
 }

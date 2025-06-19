@@ -32,16 +32,16 @@ public class Position {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Position)) return false;
-        Position other = (Position) obj;
-        return q == other.q && r == other.r;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Position)) return false;
+        Position that = (Position) o;
+        return this.q == that.q && this.r == that.r;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(q, r);
+        return Objects.hash(q, r); // 或 return 31 * q + r;
     }
 
     @Override
