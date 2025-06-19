@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class AiPlayer extends Player {
+public class AiPlayer_easy extends Player {
 
     private final Random random;
 
@@ -23,7 +23,7 @@ public class AiPlayer extends Player {
      * @param color 玩家顏色
      * @param validPositions 由 BoardInitializer.addBoardToValidPosition() 回傳的 map
      */
-    public AiPlayer(int id, PlayerColor color, Map<Position, PlayerColor> validPositions) {
+    public AiPlayer_easy(int id, PlayerColor color, Map<Position, PlayerColor> validPositions) {
         super(id, color, validPositions);
         this.random = new Random();
     }
